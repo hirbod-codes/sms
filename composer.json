@@ -2,7 +2,7 @@
     "name": "hirbod-codes/sms",
     "description": "Send sms messages through a third party api.",
     "type": "library",
-    "license": "",
+    "license": "MIT",
     "authors": [
         {
             "name": "Hirbod Khatami"
