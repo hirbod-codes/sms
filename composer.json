@@ -19,7 +19,7 @@
         "phpunit/phpunit": "^9.5",
         "orchestra/testbench": "6.0"
     },
-    "autoload-dev": {
+    "autoload": {
         "psr-4": {
             "HirbodKhatami\\SmsPackage\\": "src/",
             "HirbodKhatami\\SmsPackage\\Tests\\": "Tests/"
