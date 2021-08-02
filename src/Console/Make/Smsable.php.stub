@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\SerializesModels;
 
-use HirbodKhatami\SmsPackage\sms;
+use HirbodKhatami\SmsPackage\Facades\sms;
 
 class DummyClass extends sms
 {
