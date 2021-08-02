@@ -21,7 +21,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "HirbodKhatami\\SmsPackage\\Tests\\": "tests"
+            "HirbodKhatami\\SmsPackage\\": "src",
+            "HirbodKhatami\\SmsPackage\\Tests\\": "Tests"
         }
     }
 }
