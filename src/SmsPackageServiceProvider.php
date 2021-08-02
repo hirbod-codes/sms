@@ -46,7 +46,7 @@ class SmsPackageServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->commands([
                 InstallSmsPackage::class,
-                MakeSmsablCommand::class
+                MakeSmsableCommand::class
             ]);
         }
     }
