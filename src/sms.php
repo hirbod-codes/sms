@@ -7,12 +7,8 @@ use Illuminate\Support\Facades\Http;
 class sms
 {
     protected string $to;
-    
-    protected string $text;
 
-    public function __construct()
-    {
-    }
+    protected string $text;
 
     public function to(string $to): self
     {
@@ -49,6 +45,10 @@ class sms
             ];
 
         $response = Http::withHeaders($headers)->post(config('SMS_HOST'), $data);
+
+        if ($response->status() !== 200) {
+            throw new \RuntimeException("Failed to send the notification message.", 500);
+        }
 
         return $this;
     }
