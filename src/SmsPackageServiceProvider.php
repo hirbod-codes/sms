@@ -28,22 +28,21 @@ class SmsPackageServiceProvider extends ServiceProvider
                 return $app->make('smspackage');
             });
         });
-        
-        $this->app->bind('sms', function($app) {
+
+        $this->app->bind('sms', function ($app) {
             return new sms();
         });
-        
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'smspackage');
-        
-        if ($this->app->runningInConsole()) 
-        {
-            $this->publishes(
-                [
-                    __DIR__.'/../config/config.php' => config_path('smspackage.php'),
-                ], 'config');
-        }
+
+        $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'smspackage');
 
         if ($this->app->runningInConsole()) {
+            $this->publishes(
+                [
+                    __DIR__ . '/../config/config.php' => config_path('smspackage.php'),
+                ],
+                'config'
+            );
+
             $this->commands([
                 InstallSmsPackage::class,
                 MakeSmsableCommand::class
