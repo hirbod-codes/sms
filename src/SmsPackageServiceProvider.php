@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Notification;
 
 use HirbodKhatami\SmsPackage\sms;
 
-use HirbodKhatami\SmsPackage\Channels\SmsChannels;
+use HirbodKhatami\SmsPackage\Channels\SmsChannel;
 
 use HirbodKhatami\SmsPackage\Console\InstallSmsPackage;
 use HirbodKhatami\SmsPackage\Console\Make\MakeSmsableCommand;
@@ -18,7 +18,7 @@ use HirbodKhatami\SmsPackage\Console\Make\MakeSmsableCommand;
 class SmsPackageServiceProvider extends ServiceProvider
 {
     public $singletons = [
-        'smspackage' => SmsChannels::class,
+        'smspackage' => SmsChannel::class,
     ];
 
     public function register()
