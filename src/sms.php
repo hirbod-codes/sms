@@ -28,23 +28,22 @@ class sms
     {
         $headers =
             [
-                "Accept" => "application/json, text-plain, */*",
+                "Accept" => "*/*",
                 'content-type' => 'application/json',
-                'postman-token' => '3e37c158-2c35-75aa-1ae7-f76d90ebbe8f',
                 'cache-control' => 'no-cache'
             ];
 
         $data =
             [
-                'username' => config("SMS_USERNAME"),
-                'password' => config("SMS_PASSWORD"),
+                'username' => config("smspackage.SMS_USERNAME"),
+                'password' => config("smspackage.SMS_PASSWORD"),
                 'to' => $this->to,
-                'from' => config("SMS_from"),
+                'from' => config("smspackage.SMS_from"),
                 'text' => $this->text,
                 'isflash' => 'false'
             ];
 
-        $response = Http::withHeaders($headers)->post(config('SMS_HOST'), $data);
+        $response = Http::withHeaders($headers)->post(config('smspackage.SMS_HOST'), $data);
 
         if ($response->status() !== 200) {
             throw new \RuntimeException("Failed to send the notification message.", 500);
