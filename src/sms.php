@@ -45,7 +45,7 @@ class sms
 
         $response = Http::withHeaders($headers)->post(config('smspackage.SMS_HOST'), $data);
 
-        if ($code = (json_decode($response->body(), true)["RetStatus"]) !== 200) {
+        if (($code = json_decode($response->body(), true)["RetStatus"]) !== 1) {
             throw new \RuntimeException("Failed to send the notification message.", $code);
         }
 
