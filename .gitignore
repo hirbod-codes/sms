@@ -1,2 +1,4 @@
+.vscode
 Workspace
 vendor
+.phpunit.result.cache
