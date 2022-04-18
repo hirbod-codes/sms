@@ -2,6 +2,7 @@
 
 namespace HirbodKhatami\SmsPackage;
 
+use HirbodKhatami\SmsPackage\Exceptions\SmsNotSentException;
 use Illuminate\Support\Facades\Http;
 
 class Sms
@@ -46,7 +47,7 @@ class Sms
         $response = Http::withHeaders($headers)->post(config('smspackage.SMS_HOST'), $data);
 
         if (($code = json_decode($response->body(), true)["RetStatus"]) !== 1) {
-            throw new \RuntimeException("Failed to send the notification message.", $code);
+            throw new SmsNotSentException($response->body(), $code);
         }
 
         return $this;
