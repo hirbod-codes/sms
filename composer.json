@@ -16,13 +16,22 @@
             ]
         }
     },
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9.8"
+    },
     "require-dev": {
-        "phpunit/phpunit": "^9.5",
-        "orchestra/testbench": "6.0"
+        "fakerphp/faker": "^1.9.1",
+        "mockery/mockery": "^1.4.4",
+        "phpunit/phpunit": "^9.5"
     },
     "autoload": {
         "psr-4": {
-            "HirbodKhatami\\SmsPackage\\": "src/",
+            "HirbodKhatami\\SmsPackage\\": "Src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "HirbodKhatami\\SmsPackage\\Tests\\": "Tests/"
         }
     }
