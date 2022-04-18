@@ -8,8 +8,6 @@ use Illuminate\Notifications\ChannelManager;
 
 use Illuminate\Support\Facades\Notification;
 
-use HirbodKhatami\SmsPackage\sms;
-
 use HirbodKhatami\SmsPackage\Channels\SmsChannel;
 
 use HirbodKhatami\SmsPackage\Console\InstallSmsPackage;
@@ -17,29 +15,19 @@ use HirbodKhatami\SmsPackage\Console\Make\MakeSmsableCommand;
 
 class SmsPackageServiceProvider extends ServiceProvider
 {
-    public $singletons = [
-        'smspackage' => SmsChannel::class,
-    ];
-
     public function register()
     {
         Notification::resolved(function (ChannelManager $service) {
-            $service->extend('smspackage', function ($app) {
-                return $app->make('smspackage');
+            $service->extend('sms', function ($app) {
+                return new SmsChannel;
             });
-        });
-
-        $this->app->bind('sms', function ($app) {
-            return new sms();
         });
 
         $this->mergeConfigFrom(__DIR__ . '/../config/config.php', 'smspackage');
 
         if ($this->app->runningInConsole()) {
             $this->publishes(
-                [
-                    __DIR__ . '/../config/config.php' => config_path('smspackage.php'),
-                ],
+                [__DIR__ . '/../config/config.php' => config_path('sms.php')],
                 'config'
             );
 
