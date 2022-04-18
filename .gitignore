@@ -3,4 +3,4 @@ Workspace
 vendor
 .phpunit.result.cache
 phpunit.xml
-compsoer.lock
+composer.lock
