@@ -10,7 +10,7 @@ class MakeSmsableCommand extends GeneratorCommand
 
     protected $description = 'Create a new Smsable class';
 
-    protected $type = 'sms';
+    protected $type = 'Sms';
 
     protected function getStub()
     {
@@ -40,7 +40,6 @@ class MakeSmsableCommand extends GeneratorCommand
         $content = file_get_contents($path);
 
         // Update the file content with additional data (regular expressions)
-
         file_put_contents($path, $content);
     }
 }

@@ -4,27 +4,27 @@ namespace HirbodKhatami\SmsPackage;
 
 use Illuminate\Support\Facades\Http;
 
-class sms
+class Sms
 {
     protected string $to;
 
     protected string $text;
 
-    public function to(string $to): self
+    public function to(string $to): static
     {
         $this->to = $to;
 
         return $this;
     }
 
-    public function text(string $text): self
+    public function text(string $text): static
     {
         $this->text = $text;
 
         return $this;
     }
 
-    public function send()
+    public function send(): static
     {
         $headers =
             [
@@ -52,7 +52,7 @@ class sms
         return $this;
     }
 
-    public function build()
+    public function build(): static
     {
         return $this;
     }

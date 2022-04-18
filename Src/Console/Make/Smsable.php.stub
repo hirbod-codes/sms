@@ -6,7 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\SerializesModels;
 
-use HirbodKhatami\SmsPackage\Facades\sms;
+use HirbodKhatami\SmsPackage\sms;
 
 class DummyClass extends sms
 {
@@ -26,8 +26,8 @@ class DummyClass extends sms
      *
      * @return $this
      */
-    public function build()
+    public function build(): static
     {
-        return $this->text("text");
+        return $this->to("phoneNumber")->text("text");
     }
 }

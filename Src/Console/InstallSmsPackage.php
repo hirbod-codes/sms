@@ -17,25 +17,19 @@ class InstallSmsPackage extends Command
 
         $this->info('Publishing configuration...');
 
-        if (!$this->configExists('smspackage.php')) 
-        {
+        if (!$this->configExists('smspackage.php')) {
             $this->publishConfiguration();
             $this->info('Published configuration');
-        } 
-        else 
-        {
-            if ($this->shouldOverwriteConfig()) 
-            {
+        } else {
+            if ($this->shouldOverwriteConfig()) {
                 $this->info('Overwriting configuration file...');
                 $this->publishConfiguration($force = true);
-            } 
-            else 
-            {
+            } else {
                 $this->info('Existing configuration was not overwritten');
             }
         }
 
-        $this->info('SmsPackage has been instaled.');
+        $this->info('SmsPackage has been installed.');
     }
 
     private function configExists($fileName)
@@ -62,6 +56,6 @@ class InstallSmsPackage extends Command
             $params['--force'] = true;
         }
 
-       $this->call('vendor:publish', $params);
+        $this->call('vendor:publish', $params);
     }
 }
